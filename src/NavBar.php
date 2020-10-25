@@ -123,11 +123,13 @@ class NavBar extends Widget
 
     public function start(): string
     {
+        $id = $this->getId();
+
         if (!isset($this->options['id'])) {
-            $id = $this->getId();
             $this->options['id'] = "{$id}-navbar";
-            $this->collapseOptions['id'] = "{$id}-collapse";
         }
+
+        $this->collapseOptions['id'] = "{$id}-collapse";
 
         if (empty($this->options['class'])) {
             Html::addCssClass($this->options, ['widget' => 'navbar', 'navbar-expand-lg', 'navbar-light', 'bg-light']);
